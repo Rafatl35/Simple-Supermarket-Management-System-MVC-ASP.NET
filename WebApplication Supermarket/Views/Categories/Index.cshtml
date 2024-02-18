@@ -1,11 +1,14 @@
-﻿
-    <h1>Categories</h1>
+﻿@using WebApplication_Supermarket.Models;
+@model List<Category>
+@section title{
+    <h1>Categories</h1> 
+}    
     <br />
     <ul>
+    @foreach(var category in Model)
+    {
         <li>
-            <a href="/categories/edit/1">Beverage</a>
+            @category.Name
         </li>
-        <li>
-            <a href="/categories/edit/2">Meat</a>
-        </li>
-    </ul>
+    }
+</ul>
