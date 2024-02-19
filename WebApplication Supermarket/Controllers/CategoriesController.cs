@@ -15,5 +15,12 @@ namespace WebApplication_Supermarket.Controllers
             var category = CategoriesRepository.GetCategoryById(id.HasValue ? id.Value : 0);
             return View(category);
         }
+
+        [HttpPost]
+        public IActionResult Edit(Category category) 
+        {
+            CategoriesRepository.UpdateCategory(category.CategoryId, category);
+            return RedirectToAction(nameof(Index));
+        }
     }
 }
